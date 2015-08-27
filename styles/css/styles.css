@@ -939,6 +939,7 @@ font-size: 1.1em;
 .admin_main{
   width: 72%;
   margin-right: 30px;
+  background-color: #E8F6FA;
 }
 
 .admin_sidebar,.admin_main h3{
@@ -947,8 +948,14 @@ font-size: 1.1em;
 
 .admin_sidebar ul li{
   border-bottom: 1px solid #ddd;
+  background-color: #ECEAEA;
 }
 
 .btnAction {
   margin-bottom: 20px;
+}
+
+.nav li a:hover{
+  color: #000;
+  background-color: #FACF97;
 }

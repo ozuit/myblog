@@ -2,7 +2,7 @@
 <div class="col-md-8 content-main">
 	<div class="content-grid">
 	<?php foreach ($articles as $article) : 
-		$date = new DateTime($article['date']);
+		$date = new DateTime($article['date_up']);
 		$date_up = $date->format('M d, Y');
 	?>					 
 	 <div class="content-grid-info">

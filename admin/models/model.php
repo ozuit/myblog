@@ -10,6 +10,9 @@ class Model {
     }
     
     public function findOne($value, $field = null) {
+        if ($field === null) {
+            $field = $this->primary_key;
+        }
         $sql = "SELECT * FROM `{$this->table}` WHERE `{$field}` = '" . esc($value) . "' LIMIT 1";
         $rows = db_get_all($sql);
         

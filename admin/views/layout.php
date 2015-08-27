@@ -9,7 +9,7 @@
     <script type="text/javascript" src="myblog/../../includes/ckeditor/ckeditor.js"></script>
 </head>
 <body>
-  <div class='container'>
+  <div class='row' style="margin:0 10px">
     <div class='navbar navbar-inverse'>
       <div class='navbar-inner nav-collapse' style="height: auto;">
         <ul class="nav">
@@ -25,7 +25,7 @@
         <div class='col-md-3 admin_sidebar'>
             <?php include ROOT . DS . 'views' . DS . 'blocks' . DS . 'sidebar.php'; ?>
         </div>
-        </div>
+    </div>
   </div>
 </body>
 </html>

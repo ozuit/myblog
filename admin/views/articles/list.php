@@ -9,6 +9,7 @@
         <th>Description</th>
         <th>Date Up</th>
         <th>Categories</th>
+        <th colspan="2" class="text-center">Action</th>
     </tr>
     <?php
         $i = 0;
@@ -19,8 +20,10 @@
         <td><?php echo $i; ?></td>
         <td><?php echo $p['title']; ?></td>
         <td><?php echo $p['description']; ?></td>
-        <td><?php echo $p['date']; ?></td>
+        <td><?php echo $p['date_up']; ?></td>
         <td><?php echo $p['name']; ?></td>
+        <td><center><a href="index.php?c=article&m=edit&id=<?php echo $p['id']; ?>"><button type="button" class="btn btn-warning">Chỉnh sửa</button></a></center></td>
+        <td><center><a href="index.php?c=article&m=delete&id=<?php echo $p['id']; ?>"><button type="button" class="btn btn-danger">Xóa bài</button></a></center></td>
     </tr>
     <?php        
         endforeach;

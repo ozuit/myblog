@@ -39,5 +39,5 @@ function auth_register() {
 
 function auth_logout() {
     model('user')->authLogout();
-    redirect('index.php?c=auth&m=login&p=home');
+    redirect('index.php?c=index&m=index&p=home');
 }

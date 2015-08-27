@@ -1,4 +1,4 @@
-<h3 class="text-center">Thêm bài học mới</h3>
+<h3 class="text-center">Chỉnh sửa bài viết</h3>
 
 <?php if (isset($error)): ?>
   <div class="alert alert-warning">
@@ -11,23 +11,22 @@
 
   <div class="form-group">
     <label for="">Title</label>
-    <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Input a title">
+    <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Input a title" value="<?php echo $article['title']; ?>">
   </div>
 
   <div class="form-group">
     <label for="">Description</label>
-    <textarea name="description" id="inputMota" class="form-control" rows="2" required="required"></textarea>
+    <textarea name="description" id="inputMota" class="form-control" rows="2" required="required"><?php echo $article['description']; ?></textarea>
   </div>
 
   <div class="form-group">
     <label for="">Image_url</label>
-    <input type="text" class="form-control" id="inputTitle" name="image_url" placeholder="Input a image for thumnail">
+    <input type="text" class="form-control" id="inputTitle" name="image_url" placeholder="Input a image for thumnail" value="<?php echo $article['image_url']; ?>">
   </div>
 
   <div class="form-group">
     <label for="">Category</label>
     <select name="category_id" id="input" class="form-control">
-      <option value="">-- Select One --</option>
       <?php foreach ($categories as $value) : ?>
       <option value="<?php echo $value['id']; ?>"><?php echo $value['id']; ?></option>
       <?php endforeach; ?>
@@ -36,7 +35,7 @@
 
   <div class="form-group">
     <label for="">Content</label>
-    <textarea name="content" id="inputContent" class="ckeditor form-control"></textarea>
+    <textarea name="content" id="inputContent" class="ckeditor form-control"><?php echo $article['content']; ?></textarea>
   </div>
 
   <button type="submit" class="btn btn-success">Lưu bài học</button>

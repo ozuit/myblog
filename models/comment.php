@@ -14,11 +14,17 @@ class Comment extends Model {
 
     function getAllCommentByArticleId($articleId)
     {
-    	$sql = "SELECT comment,date,name FROM `{$this->table}` AS c INNER JOIN `users` AS u 
-				ON c.user_id=u.id
-    			WHERE `article_id` = " . esc($articleId);
+    	$sql = "SELECT comment,date,username FROM `{$this->table}` AS c JOIN `users` AS u 
+				ON c.user_id=u.id JOIN articles AS a ON a.id=c.article_id
+    			WHERE c.article_id = " . esc($articleId);
 
         return db_get_all($sql);
+    }
+
+    public function addToComment($postData) {
+        $postData['date'] = date("Y-m-d");
+        
+        return db_insert($this->table, $postData);
     }
 }
 
