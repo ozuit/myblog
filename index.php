@@ -13,6 +13,7 @@
 error_reporting(E_ALL ^ E_DEPRECATED);
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
+define('PATH_IMG', 'img/');
 
 require ROOT . DS . 'includes' . DS . 'common.php';
 

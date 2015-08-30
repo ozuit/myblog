@@ -18,7 +18,7 @@
         <td><?php echo $i; ?></td>
         <td><?php echo $comment['username']; ?></td>
         <td><?php echo $comment['comment']; ?></td>
-        <td><?php echo $comment['date']; ?></td>
+        <td><?php echo date_format(date_create($comment['date']), 'd/m/Y'); ?></td>
         <td><?php echo $comment['title']; ?></td>
         <td><center><a href="index.php?c=comment&m=delete&id=<?php echo $comment['id']; ?>"><button type="button" class="btn btn-warning">Delete</button></a></center></td>
     </tr>
@@ -27,7 +27,7 @@
         if (!$i):
     ?>
     <tr>
-        <td colspan="5" class="text-center"><strong>Hiện tại không có user nào trong database</strong></td>
+        <td colspan="6" class="text-center"><strong>Hiện tại không có user nào trong database</strong></td>
     </tr>
     <?php endif; ?>
 </table>

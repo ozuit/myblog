@@ -4,7 +4,7 @@ class Category extends Model {
     public $table = 'categories';
     public $primary_key = 'id';
     
-    public function getAllBy($value) {   
+    public function getAllBy($value=null) {   
         if ($value=='') {
                  $value = '*';
              }     
@@ -26,7 +26,14 @@ class Category extends Model {
     }
 
     public function deleteById($category_id) {
-
+        $sql = "SELECT * FROM `articles` WHERE category_id={$category_id}";
+        $articles = db_get_all($sql);
+        if (count($articles) > 0) {
+            foreach ($articles as $value) {
+                // db_delete('articles','id='.$value['id']);
+                model('article')->deleteById($value['id']);
+            }
+        }
         return db_delete($this->table,'id='.$category_id);
     }
 

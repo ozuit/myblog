@@ -8,7 +8,7 @@ class Admin extends Model {
         
         if ($user && $user['password'] == md5($postData['password'])) {
             unset($user['password']);
-            $_SESSION['logged'] = $user;
+            $_SESSION['ad_logged'] = $user;
             return $user;
         }
         
@@ -16,7 +16,6 @@ class Admin extends Model {
     }
     
     public function authLogout() {
-        unset($_SESSION['logged']);
-        session_destroy();
+        unset($_SESSION['ad_logged']);
     }
 }

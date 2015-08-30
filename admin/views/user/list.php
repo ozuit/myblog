@@ -3,8 +3,8 @@
     <tr>
         <th>#</th>
         <th>Username</th>
-        <th>Password</th>
         <th>Email</th>
+        <th>Phone</th>
         <th style="text-align:center">Action</th>
     </tr>
     <?php
@@ -15,8 +15,8 @@
     <tr>
         <td><?php echo $i; ?></td>
         <td><?php echo $user['username']; ?></td>
-        <td><?php echo $user['password']; ?></td>
         <td><?php echo $user['email']; ?></td>
+        <td><?php echo $user['phone']; ?></td>
         <td><center><a href="index.php?c=user&m=delete&id=<?php echo $user['id']; ?>"><button type="button" class="btn btn-warning">Delete</button></a></center></td>
     </tr>
     <?php        
@@ -24,7 +24,7 @@
         if (!$i):
     ?>
     <tr>
-        <td colspan="5" class="text-center"><strong>Hiện tại không có user nào trong database</strong></td>
+        <td colspan="6" class="text-center"><strong>Hiện tại không có user nào trong database</strong></td>
     </tr>
     <?php endif; ?>
 </table>

@@ -1,4 +1,4 @@
-<div class="col-md-4 content-right">
+<div class="col-md-3">
  <div class="account">
  	<h3>Đăng nhập hệ thống</h3>
  	<?php if (isset($error_login)): ?>
@@ -30,22 +30,4 @@
 	</form>
 	<?php endif; ?>
  </div>
-
- <div class="recent">
-	 <h3>Các bài viết mới</h3>
-	 <ul>
-	 <?php foreach ($four_articles as $article) : ?>
-	 <li><a href="index.php?c=home&m=showArticle&p=home&id=<?php echo $article['id']; ?>"><?php echo $article['title']; ?></a></li>
-	 <?php endforeach; ?>
-	 </ul>
- </div>
- <div class="categories">
-	 <h3>Chủ đề</h3>
-	 <ul>
-	 <?php foreach ($four_category as $category) : ?>
-	 <li><a href="index.php?c=home&m=category&p=home&id=<?php echo $category['id']; ?>"><?php echo $category['name']; ?></a></li>
-	 <?php endforeach; ?>
-	 </ul>
- </div>
- <div class="clearfix"></div>
 </div>

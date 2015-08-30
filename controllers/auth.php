@@ -9,7 +9,7 @@ function auth_login() {
         if (model('user')->authLogin($postData)) {
             redirect('index.php');
         } else {
-            $data['error_login'] = 'Login failed ! Please try again !';
+            $data['error_login'] = 'Username hoặc mật khẩu không đúng!';
         }
     }
     
@@ -21,6 +21,8 @@ function auth_login() {
 
 function auth_register() {
     $data = array();
+    $data['four_articles'] = model('article')->getAllDesc(4);
+    $data['four_category'] = model('category')->getAllDesc(4);
     $data['template_file'] = 'auth/register.php';
     $data['sidebar'] = 'blocks/sidebar.php';
     
@@ -29,7 +31,7 @@ function auth_register() {
         if (model('user')->authRegister($postData)) {
             redirect('index.php');
         } else {
-            $data['error_register'] = 'Register failed ! Email exists ! Please try again !';
+            $data['error_register'] = 'Username đã tồn tại, hãy chọn tên đăng nhập khác!';
             $data['postData'] = $postData;
         }
     }

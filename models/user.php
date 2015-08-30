@@ -5,7 +5,7 @@ class User extends Model {
     public $primary_key = 'id';
     
     public function authLogin($postData) {
-        $user = static::getOneBy($postData['email'], 'email');
+        $user = static::getOneBy($postData['username'], 'username');
 
         if ($user && $user['password'] == md5($postData['password'])) {
             unset($user['password']);
@@ -17,7 +17,7 @@ class User extends Model {
     }
     
     public function authRegister($postData) {
-        $user = static::getOneBy($postData['email'], 'email');
+        $user = static::getOneBy($postData['username'], 'username');
         
         if ($user) {
             return false;
@@ -34,6 +34,5 @@ class User extends Model {
     
     public function authLogout() {
         unset($_SESSION['logged']);
-        session_destroy();
     }
 }

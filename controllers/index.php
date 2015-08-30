@@ -2,5 +2,5 @@
 
 function index_index()
 {
-    redirect('index.php?c=page&m=home&p=home');
+    redirect('index.php?c=home&m=index&p=home');
 }

@@ -29,7 +29,7 @@
     <select name="category_id" id="input" class="form-control">
       <option value="">-- Select One --</option>
       <?php foreach ($categories as $value) : ?>
-      <option value="<?php echo $value['id']; ?>"><?php echo $value['id']; ?></option>
+      <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
       <?php endforeach; ?>
     </select>
   </div>

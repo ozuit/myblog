@@ -20,7 +20,7 @@ function article_add() {
         }
     }
     
-    $data['categories'] = model('category')->getAllBy('id');
+    $data['categories'] = model('category')->getAll();
     $data['template_file'] = 'articles/add.php';
     render('layout.php', $data);
 }

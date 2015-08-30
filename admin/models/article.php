@@ -18,7 +18,13 @@ class Article extends Model {
     }
 
     public function deleteById($article_id) {
-
+        $sql = "SELECT * FROM `comments` WHERE article_id={$article_id}";
+        $user_comment = db_get_all($sql);
+        if (count($user_comment) > 0) {
+            foreach ($user_comment as $value) {
+                db_delete('comments','id='.$value['id']);
+            }
+        }
         return db_delete($this->table,'id='.$article_id);
     }
 

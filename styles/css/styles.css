@@ -88,17 +88,18 @@ color:#00aeff;
 .content{
 border-top:1px solid #d2d2d2;
 border-bottom:1px solid #d2d2d2;
+padding: 50px 20px;
 }
 .content-main {
-padding-left:0;
-width:60%;
+padding: 0 50px 0 90px;
 }
 .content-grids {
 margin-top: 4em;
 }
 .post-info{
 background:#fff;
-padding:2em;
+margin-top: 15px;
+padding: 15px;
 }
 .post-info h4{
 color:#afafaf;
@@ -149,6 +150,7 @@ color:#00aeff;
 .content-grid-info{
   position: relative;
   margin-bottom: 3em;
+  width: 94%;
 }
 .post-info:before, .post-info:after
 {
@@ -182,14 +184,14 @@ color:#00aeff;
 }
 
 /*----*/
-.content-right {
-padding-left: 1em;
-}
-.recent,.comments,.archives,.account{
-margin-bottom:3em;
+.recent,.comments,.categories,.account{
+margin-bottom:1.5em;
+border: 2px solid #dddddd;
+border-radius: 6px;
+padding: 20px 40px;
 }
 .recent h3,.comments h3,.archives h3,.categories h3,.account h3{
-color:#4a5054;
+color:#00aeff;
 font-size:1.1em;
 margin-bottom:0.5em;
 }
@@ -231,10 +233,10 @@ color:#00aeff;
 color:#989898;
 }
 /*--about--*/
-.about-content,.contact-content,.single{
+.shop-content,.contact-content,.single{
 padding:2em 0;
 }
-.about-content h2{
+.shop-content h2{
 color:#00aeff;
 font-size:2em;
 }
@@ -522,7 +524,7 @@ margin-bottom:2em;
 width: 50%;
 float: left;
 }
-.about-content h2 {
+.shop-content h2 {
 font-size: 1.7em;
 margin-bottom:1em;
 }
@@ -613,7 +615,7 @@ font-size: 0.85em;
 .comments ul li a{
 font-size: 0.9em;
 }
-.about-content h2 {
+.shop-content h2 {
 font-size: 1.5em;
 }
 .about-grid h3, .about-grid2 h3, .who-iam h3 {
@@ -723,10 +725,10 @@ font-size: 0.79em;
 .comments ul li a{
 font-size: 0.88em;
 }
-.about-content h2 {
+.shop-content h2 {
 font-size: 1.4em;
 }
-.about-content, .contact-content, .single {
+.shop-content, .contact-content, .single {
 padding: 1.5em 0;
 }
 .about-grid h3, .about-grid2 h3, .who-iam h3 {
@@ -813,10 +815,10 @@ padding: 1em 0;
 font-size: 0.8em;
 text-align:center;
 }
-.about-content h2 {
+.shop-content h2 {
 font-size: 1.2em;
 }
-.about-content, .contact-content, .single {
+.shop-content, .contact-content, .single {
 padding: 1em 0;
 }
 .about-grid h3, .about-grid2 h3, .who-iam h3 {
@@ -958,4 +960,10 @@ font-size: 1.1em;
 .nav li a:hover{
   color: #000;
   background-color: #FACF97;
+}
+
+/*=================SHOP=============*/
+.shop_main {
+  margin: 0;
+  padding: 0;
 }

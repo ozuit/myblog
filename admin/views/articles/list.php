@@ -6,7 +6,6 @@
     <tr>
         <th>#</th>
         <th>Title</th>
-        <th>Description</th>
         <th>Date Up</th>
         <th>Categories</th>
         <th colspan="2" class="text-center">Action</th>
@@ -14,13 +13,12 @@
     <?php
         $i = 0;
         foreach ($articles as $p):
-        $i++;
+        $i++; 
     ?>
     <tr>
         <td><?php echo $i; ?></td>
         <td><?php echo $p['title']; ?></td>
-        <td><?php echo $p['description']; ?></td>
-        <td><?php echo $p['date_up']; ?></td>
+        <td><?php echo date_format(date_create($p['date_up']), 'd/m/Y'); ?></td>
         <td><?php echo $p['name']; ?></td>
         <td><center><a href="index.php?c=article&m=edit&id=<?php echo $p['id']; ?>"><button type="button" class="btn btn-warning">Chỉnh sửa</button></a></center></td>
         <td><center><a href="index.php?c=article&m=delete&id=<?php echo $p['id']; ?>"><button type="button" class="btn btn-danger">Xóa bài</button></a></center></td>
@@ -30,7 +28,7 @@
         if (!$i):
     ?>
     <tr>
-        <td colspan="5" class="text-center"><strong>Chưa có bài viết mới nào trong tháng này.</strong></td>
+        <td colspan="6" class="text-center"><strong>Chưa có bài viết mới nào trong tháng này.</strong></td>
     </tr>
     <?php endif; ?>
 </table>

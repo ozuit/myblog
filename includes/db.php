@@ -3,7 +3,7 @@
 $host       = '127.0.0.1';
 $user       = 'root';
 $password   = '';
-$db_name    = 'moneylover';
+$db_name    = 'myblog';
 
 mysql_connect($host, $user, $password, $db_name) or die('Can not connect database !');
 mysql_select_db($db_name);
@@ -56,6 +56,6 @@ function db_update($table, $data, $where) {
 function db_delete($table, $where) {
     $sql = "DELETE FROM `{$table}` WHERE {$where}";
     mysql_query($sql);
-    
-    return mysql_affected_rows();
+    echo $sql;
+    // return mysql_affected_rows();
 }

@@ -1,6 +1,6 @@
 <?php
 
-function page_home() {
+function home_index() {
 	$data = array();
 
     $data['articles'] = model('article')->all();
@@ -16,21 +16,7 @@ function page_home() {
     render('layout.php', $data);
 }
 
-function page_about() {
-	$data = array();
-    
-    $data['template_file'] = 'page/about.php';
-    render('layout.php', $data);
-}
-
-function page_contact() {
-	$data = array();
-    
-    $data['template_file'] = 'page/contact.php';
-    render('layout.php', $data);
-}
-
-function page_category()
+function home_category()
 {
     $data = array();
 
@@ -45,5 +31,25 @@ function page_category()
     $data['four_category'] = model('category')->getAllDesc(4);
     $data['template_file'] = 'page/home.php';
     $data['sidebar'] = 'blocks/sidebar.php';
+    render('layout.php', $data);
+}
+
+function home_showArticle()
+{
+    $data = array();
+    
+    if (isPostRequest()) {
+        $postData = postData();
+        $postData['article_id'] = $_GET['id'];
+        model('comment')->addToComment($postData);
+    }
+
+    $data['four_articles'] = model('article')->getAllDesc(4);
+    $data['four_category'] = model('category')->getAllDesc(4);
+    $data['article'] = model('article')->getOneBy($_GET['id']);
+    $data['comments'] = model('comment')->getAllCommentByArticleId($_GET['id']);
+    $data['template_file'] = 'page/article.php';
+    $data['sidebar'] = 'blocks/sidebar.php';
+
     render('layout.php', $data);
 }
