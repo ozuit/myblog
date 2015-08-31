@@ -36,8 +36,17 @@
 
   <div class="form-group">
     <label for="">Content</label>
-    <textarea name="content" id="inputContent" class="ckeditor form-control"></textarea>
+    <textarea name="content" id="ckeditor1" class="form-control"></textarea>
   </div>
+
+  <script type="text/javascript">
+  CKEDITOR.replace( 'ckeditor1', {
+    uiColor: '#27A5E0',
+    height: 300,
+    toolbarCanCollapse: true,
+    filebrowserImageUploadUrl: "http://myblog.cu/includes/ckeditor/plugins/imgArticles.php"
+  });
+  </script>
 
   <button type="submit" class="btn btn-success">Lưu bài học</button>
   <a href="index.php?c=article&m=list"><button type="button" class="btn btn-primary">Hủy bỏ</button></a>

@@ -24,17 +24,18 @@ ul,label{
 .logo{
 float:left;
 margin-right:2em;
+margin-left: 100px;
 }
 .top-menu{
 float: left;
-width: 70%;
 margin-top: 5.5em;
+margin-left: 50px;
+width: 64%;
 }
 .search {
 width: 43%;
 position: relative;
 float: right;
-margin-right: 50px;
 margin-top: 22px;
 }
 .search form {
@@ -99,7 +100,7 @@ margin-top: 4em;
 .post-info{
 background:#fff;
 margin-top: 15px;
-padding: 15px;
+padding: 15px 0;
 }
 .post-info h4{
 color:#afafaf;
@@ -150,7 +151,7 @@ color:#00aeff;
 .content-grid-info{
   position: relative;
   margin-bottom: 3em;
-  width: 94%;
+  width: 93%;
 }
 .post-info:before, .post-info:after
 {
@@ -501,7 +502,6 @@ width:29%;
 width:100%;
 }
 .top-menu {
-width: 60%;
 margin-top:1.5em;
 }
 .content-grids {
@@ -956,14 +956,74 @@ font-size: 1.1em;
 .btnAction {
   margin-bottom: 20px;
 }
-
+.nav li {
+  background-color: #F2F1F1;
+  margin-bottom: 2px;
+}
+.nav li a {
+  font-weight: bold;
+}
 .nav li a:hover{
   color: #000;
-  background-color: #FACF97;
 }
-
+.sidebar_account {
+  margin-bottom: 30px;
+}
+.sidebar_account form {
+  padding: 0 40px;
+}
 /*=================SHOP=============*/
-.shop_main {
+.thumbnail .caption h4 {
+  text-align: center;
+  color: #008752;
+  height: 30px;
+}
+.thumbnail .caption .price {
+  text-align: center;
+  color: #F4893F;
+  font-weight: bold;
+}
+.thumbnail .caption .add {
+  text-align: center;
+}
+.caption a {
+  text-decoration: none;
+}
+.btn-theme {
+  background-color: rgba(245, 138, 46, 1);
+  border-color: rgba(245, 138, 46, 1);
+  opacity: 0.8;
+  color: #fff;
+}
+.btn-theme:hover {
+  background-color: rgba(245, 138, 46, 1);
+  border-color: rgba(245, 138, 46, 1);
+  opacity: 1;
+  color: #fff;
+}
+.sidebar_shop, .sidebar_account {
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+.sidebar_shop h3, .sidebar_account h3 {
+  color: #00aeff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.sidebar_shop hr {
   margin: 0;
-  padding: 0;
+  padding:0;
+  margin-bottom: 2px;
+}
+.sidebar_shop form {
+  padding: 0 20px;
+}
+.cart {
+  color: #fff;
+  background-color: #FE6B6B;
+  border: 1px solid #FE6B6B;
+  border-radius: 50%;
+  padding: 2px;
 }

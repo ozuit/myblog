@@ -1,5 +1,5 @@
 <div class="col-md-4 content-right">
- <div class="account">
+ <div class="sidebar_account">
  	<h3>Đăng nhập hệ thống</h3>
  	<?php if (isset($error_login)): ?>
 		<div class="alert alert-danger" style="color:red">
@@ -8,7 +8,7 @@
 	<?php endif; ?>
 
 	<?php if ($logged = isLogged()): ?>
-	<ul class="nav nav-tabs nav-stacked">	
+	<ul class="nav nav-theme">	
 		<li><a href="#">Welcome <strong><?php echo $logged['username']; ?></strong></a></li>
 	    <li><a href="index.php?c=auth&m=logout&p=home">Đăng xuất</a></li>
     </ul>
@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="inputPassword">Password</label>
+			<label for="inputPassword">Mật khẩu</label>
 			<input type="password" name="password" id="inputPassword" class="form-control" required="required" placeholder="Nhập vào password">
 		</div>
 

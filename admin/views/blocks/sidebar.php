@@ -6,6 +6,7 @@
     <li><a href="index.php?c=article&m=list">Articles</a></li>
     <li><a href="index.php?c=comment&m=list">Comments</a></li>
     <li><a href="index.php?c=user&m=list">Members</a></li>
+    <li><a href="index.php?c=product&m=list">Products</a></li>
     <li><a href="index.php?c=auth&m=logout">Logout</a></li>
     <?php else: ?>
     <li><a href="index.php?c=auth&m=login">Login</a></li>

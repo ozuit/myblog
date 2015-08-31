@@ -9,5 +9,4 @@ CKEDITOR.editorConfig = function( config ) {
 	config.uiColor = '#27A5E0';
 	config.height = 300;
 	config.toolbarCanCollapse = true;
-	config.filebrowserImageUploadUrl = "http://myblog.cu/includes/ckeditor/plugins/imgupload.php";
 };
