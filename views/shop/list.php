@@ -27,12 +27,26 @@
 					</div>
 					<div class="modal-body">
 						<?php echo $p['description']; ?>
-						<a href="index.php?c=product&m=cart&p=shop" class="btn btn-primary btn-theme" style="margin-top:5px;">Thêm vào giỏ hàng</a>
+						<a href="index.php?c=product&m=cart&p=shop&id=<?php echo $p['id']; ?>" class="btn btn-primary btn-theme" style="margin-top:5px;">Thêm vào giỏ hàng</a>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 <?php endforeach; ?>
 </div>
 
+<script type="text/javascript">
+	/*function getDetail (product_id) {
+		$.ajax({
+			url: '',
+			type: 'POST',
+			dataType: 'text',
+			data: {product_id: product_id},
+			success: function(data){
+				
+			}
+		});
+	}*/
+</script>

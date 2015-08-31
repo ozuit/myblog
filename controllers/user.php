@@ -31,7 +31,7 @@ function user_cart()
 
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart']['id'] as $value) {
-            $data['products'][] = model('product')->getById($value);
+            $data['products'][$value] = model('product')->getById($value);
         }
     }
     else {

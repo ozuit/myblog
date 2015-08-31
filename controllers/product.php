@@ -16,11 +16,14 @@ function product_cart()
     
     if (!isset($_SESSION['cart'])) {
     	$_SESSION['cart']['number'] = 1;
+        $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
     }
     else {
-    	$_SESSION['cart']['number'] = $_SESSION['cart']['number']+1;
+        if (!in_array($_GET['id'], $_SESSION['cart']['id'])) {
+            $_SESSION['cart']['number'] = $_SESSION['cart']['number']+1;
+            $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
+        }	
     }
-	$_SESSION['cart']['id'][] = $_GET['id'];
     
     $data['products'] = model('product')->getAllDesc(12);
     $data['sidebar'] = 'blocks/sidebar_shop.php';
