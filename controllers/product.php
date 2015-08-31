@@ -24,9 +24,12 @@ function product_cart()
             $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
         }	
     }
-    
-    $data['products'] = model('product')->getAllDesc(12);
-    $data['sidebar'] = 'blocks/sidebar_shop.php';
-    $data['template_file'] = 'shop/list.php';
-    render('layout.php', $data);
+
+    redirect('index.php?c=user&m=cart');
+}
+
+function product_detail()
+{
+    $detail = model('product')->getDetail($_POST['product_id']);
+    echo $detail[0]['description'];
 }

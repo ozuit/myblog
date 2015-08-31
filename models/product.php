@@ -16,4 +16,11 @@ class Product extends Model {
         
         return db_get_all($sql);
     }
+
+    public function getDetail($product_id)
+    {
+    	$sql = "SELECT description FROM `{$this->table}` WHERE id= {$product_id}";
+        
+        return db_get_all($sql);
+    }
 }

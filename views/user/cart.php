@@ -24,12 +24,11 @@
             <th>Thành tiền<br>(VNĐ)</th>
         </tr>
         <?php
-                $total = 0;
                 $i = 0;
                 foreach ($products as $key => $p):
                 $i++; 
         ?>
-        <form method="POST">
+        <form method="POST" id="frm">
         <tr>
             <td style="vertical-align: middle;"><center><input type="checkbox" value="<?php echo $p[0]['id']; ?>" name="delete[]"></center></td>
             <td>
@@ -39,10 +38,10 @@
                     </a>
                 </div>
             </td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff" disabled type="text" name="title[]" id="inputTitle" value="<?php echo $p[0]['title']; ?>"></td>
+            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff" type="text" name="title[<?php echo $p[0]['id']; ?>]" value="<?php echo $p[0]['title']; ?>"></td>
             <td style="vertical-align: middle;"><input type="number" name="number[<?php echo $p[0]['id']; ?>]" min="1" id="number<?php echo $p[0]['id']; ?>" class="form-control" value="1"></td>
             <td style="vertical-align: middle; width:150px"><?php echo $p[0]['price']; ?></td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:150px" disabled type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
+            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:150px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
         </tr>
 
         <script type="text/javascript">
@@ -57,7 +56,7 @@
 
     <p class="btnAction">
         <a href="index.php?c=product&m=list&p=shop" class="btn btn-theme">Tiếp tục mua sắm</a>
-        <a href="index.php?c=product&m=list&p=shop" class="btn btn-primary" style="float:right">Đặt hàng</a>
+        <button type="button" class="btn btn-primary" style="float:right" id="book">Đặt hàng</button>
         <button type="submit" name="delProduct" class="btn btn-danger" style="float:right; margin-right:10px">Xóa sản phẩm</button>
     </p>
     </form>
@@ -71,11 +70,83 @@
  </div>
 </div>
 
+<div class="modal fade" id="modal-payment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#DCDCDC;border-radius:6px 6px 0 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Xác nhận đơn đặt hàng</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Thông tin khách hàng</h4>
+                <ul style="list-style-type:none; margin-left:20px; margin-top:10px">
+                    <li>Họ và tên: <?php echo $_SESSION['logged']['fullname']; ?></li>
+                    <li>Số điện thoại: <?php echo $_SESSION['logged']['phone']; ?></li>
+                    <li>Địa chỉ: <?php echo $_SESSION['logged']['address']; ?></li>
+                </ul>
+                <hr>
+                <h4 id="total"></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-success" id="confirm">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-confirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#DCDCDC;border-radius:6px 6px 0 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Xác nhận đặt hàng</h4>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: justify">Các sản phẩm mà bạn đặt đã được hệ thống ghi nhận lại, bạn có thể kiểm tra tình trạng đơn hàng của mình bằng cách click vào mục 'Kiểm tra đơn hàng' trong menu bên</p>
+                <p>Xin cảm ơn!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-theme" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function() {
        $("#checkall").change(function() {
             $("input:checkbox").prop("checked", $(this).prop("checked"));
         });
+
+       $("#book").click(function(event) {
+            var postData = $("#frm").serialize();
+            $.ajax({
+                url: 'index.php?c=user&m=total',
+                type: 'POST',
+                dataType: 'text',
+                data: postData,
+                success: function(total){
+                    $('#total').html("Tổng giá trị hóa đơn là: " + total + " VNĐ");
+                    $("#modal-payment").modal('show');
+                }
+            });  
+       });
+
+       $("#confirm").click(function(event) {
+            var postData = $("#frm").serialize();
+            $.ajax({
+                url: 'index.php?c=user&m=payment',
+                type: 'POST',
+                dataType: 'text',
+                data: postData,
+                success: function(total){
+                    if (total) {
+                        $('#modal-payment').modal('hide');
+                        $('#modal-confirm').modal('show');
+                    };
+                }
+            });  
+       });
     });
 </script>
-

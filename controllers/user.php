@@ -43,3 +43,20 @@ function user_cart()
 
     render('layout.php', $data);			
 }
+
+function user_total()
+{
+    $prices = $_POST['price'];
+    $total = 0;
+    foreach ($prices as $value) {
+       $total+= $value;
+    }
+    echo $total;
+}
+
+function user_payment()
+{
+    $title = $_POST['title'];
+    $number = $_POST['number'];
+    $price = $_POST['price'];
+}
