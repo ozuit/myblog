@@ -6,17 +6,21 @@
         <tr>
             <th>STT</th>
             <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
             <th>Ngày đặt hàng</th>
+            <th>Trạng thái</th>
         </tr>
         <?php
             $i = 0;
-            foreach ($categories as $c):
+            foreach ($payments as $p):
             $i++;
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $c['name']; ?></td>
-            <td><?php echo $c['date_book']; ?></td>
+            <td><?php echo $p['title']; ?></td>
+            <td><?php echo $p['number']; ?></td>
+            <td><?php echo date_format(date_create($p['date_book']), 'd/m/Y'); ?></td>
+            <td><?php echo $p['status']; ?></td>
         </tr>
         <?php        
             endforeach;
@@ -29,7 +33,7 @@
     </table>
 
     <p class="btnAction">
-        <a href="index.php?c=shop&m=list&p=shop" class="btn btn-theme">Tiếp tục mua sắm</a>
+        <a href="index.php?c=product&m=list&p=shop" class="btn btn-theme">Tiếp tục mua sắm</a>
     </p>
  </div>
 </div>

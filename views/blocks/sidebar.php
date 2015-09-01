@@ -9,7 +9,7 @@
 
 	<?php if ($logged = isLogged()): ?>
 	<ul class="nav nav-theme">	
-		<li><a href="#">Welcome <strong><?php echo $logged['username']; ?></strong></a></li>
+		<li><a href="index.php?c=user&m=update&p=home">Welcome <strong><?php echo $logged['username']; ?></strong></a></li>
 	    <li><a href="index.php?c=auth&m=logout&p=home">Đăng xuất</a></li>
     </ul>
     <?php else: ?>

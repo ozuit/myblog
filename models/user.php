@@ -35,4 +35,15 @@ class User extends Model {
     public function authLogout() {
         unset($_SESSION['logged']);
     }
+
+    public function getAllById($user_id) {
+        $sql = "SELECT * FROM `{$this->table}` WHERE id={$user_id}";
+
+        return db_get_all($sql)[0];
+    }
+
+    public function updateById($postData, $user_id) {
+
+        return db_update($this->table, $postData, 'id='.$user_id);
+    }
 }

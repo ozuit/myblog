@@ -14,6 +14,8 @@ function auth_login() {
     }
     
     $data['articles'] = model('article')->all();
+    $data['four_articles'] = model('article')->getAllDesc(4);
+    $data['four_category'] = model('category')->getAllDesc(4);
     $data['template_file'] = 'page/home.php';
     $data['sidebar'] = 'blocks/sidebar.php';
     render('layout.php', $data);

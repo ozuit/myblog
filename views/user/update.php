@@ -2,7 +2,8 @@
   <div class="account">
     <h3 class="text-center">Thay đổi thông tin cá nhân</h3>
     <?php if (isset($success)): ?>
-    <div class="alert alert-success" style="color:red">
+    <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <?php echo $success; ?>
     </div>
     <?php endif; ?>
@@ -11,7 +12,7 @@
 
       <div class="form-group">
         <label for="">Tên đăng nhập</label>
-        <input disabled type="text" class="form-control" id="inputUserName" placeholder="Nhập vào tên đăng nhập" name="username" value="<?php echo (isset($postData) ? $postData['username'] : ''); ?>" required="required">
+        <input disabled type="text" class="form-control" id="inputUserName" placeholder="Nhập vào tên đăng nhập" name="username" value="<?php echo (isset($user) ? $user['username'] : ''); ?>" required="required">
       </div>
 
       <div class="form-group">
@@ -21,25 +22,25 @@
 
       <div class="form-group">
         <label for="">Họ và tên</label>
-        <input type="text" class="form-control" id="inputFullName" placeholder="Nhập vào họ và tên đầy đủ" name="fullname" value="<?php echo (isset($postData) ? $postData['fullname'] : ''); ?>" required="required">
+        <input type="text" class="form-control" id="inputFullName" placeholder="Nhập vào họ và tên đầy đủ" name="fullname" value="<?php echo (isset($user) ? $user['fullname'] : ''); ?>" required="required">
       </div>
 
       <div class="form-group">
         <label for="">Email</label>
-        <input type="email" id="inputEmail" placeholder="Nhập vào địa chỉ email" name="email" value="<?php echo (isset($postData) ? $postData['email'] : ''); ?>" class="form-control" required="required">
+        <input type="email" id="inputEmail" placeholder="Nhập vào địa chỉ email" name="email" value="<?php echo (isset($user) ? $user['email'] : ''); ?>" class="form-control" required="required">
       </div>
 
       <div class="form-group">
         <label for="">Số điện thoại</label>
-        <input type="text" class="form-control" id="inputPhone" placeholder="Nhập vào số điện thoại cá nhân" name="phone" value="<?php echo (isset($postData) ? $postData['phone'] : ''); ?>" required="required">
+        <input type="text" class="form-control" id="inputPhone" placeholder="Nhập vào số điện thoại cá nhân" name="phone" value="<?php echo (isset($user) ? $user['phone'] : ''); ?>" required="required">
       </div>
     
       <div class="form-group">
         <label for="">Địa chỉ</label>
-        <textarea name="address" id="inputAddress" class="form-control" rows="3" required="required" placeholder="Nhập vào địa chỉ nơi ở hiện tại"><?php echo (isset($postData) ? $postData['address'] : ''); ?></textarea>
+        <textarea name="address" id="inputAddress" class="form-control" rows="3" required="required" placeholder="Nhập vào địa chỉ nơi ở hiện tại"><?php echo (isset($user) ? $user['address'] : ''); ?></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Nhập lại</button>
+      <button type="reset" class="btn btn-primary">Nhập lại</button>
       <button type="submit" class="btn btn-success">Cập nhật</button>
     </form>
   </div>

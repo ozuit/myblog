@@ -43,7 +43,8 @@
             <td style="vertical-align: middle; width:150px"><?php echo $p[0]['price']; ?></td>
             <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:150px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
         </tr>
-
+        <input type="hidden" name="product_id[]" value="<?php echo $p[0]['id']; ?>">
+        
         <script type="text/javascript">
             $(document).ready(function() {
                 $("#number<?php echo $p[0]['id']; ?>").change(function(event) {
@@ -140,8 +141,8 @@
                 type: 'POST',
                 dataType: 'text',
                 data: postData,
-                success: function(total){
-                    if (total) {
+                success: function(status){
+                    if (status) {
                         $('#modal-payment').modal('hide');
                         $('#modal-confirm').modal('show');
                     };
