@@ -3,7 +3,11 @@
         foreach ($_POST['delete'] as $key) {
            unset($_SESSION['cart']['id'][$key]);
            unset($products[$key]);
-           ($_SESSION['cart']['number'] > 0) ? $_SESSION['cart']['number']-- : 0;
+           $_SESSION['cart']['number']--;
+
+            if($_SESSION['cart']['number'] == 0) {
+                redirect('index.php?c=user&m=cart&p=shop');
+            }
         }
     }
 ?>
@@ -38,20 +42,14 @@
                     </a>
                 </div>
             </td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff" type="text" name="title[<?php echo $p[0]['id']; ?>]" value="<?php echo $p[0]['title']; ?>"></td>
-            <td style="vertical-align: middle;"><input type="number" name="number[<?php echo $p[0]['id']; ?>]" min="1" id="number<?php echo $p[0]['id']; ?>" class="form-control" value="1"></td>
-            <td style="vertical-align: middle; width:150px"><?php echo $p[0]['price']; ?></td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:150px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
+            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:250px;" type="text" name="title[<?php echo $p[0]['id']; ?>]" value="<?php echo $p[0]['title']; ?>"></td>
+            <td style="vertical-align: middle;"><input type="number" name="number[<?php echo $p[0]['id']; ?>]" min="1" id="<?php echo $p[0]['id']; ?>" class="form-control number" value="1"></td>
+            <td style="vertical-align: middle; width:150px"><input style="border:0; background-color:#fff; width:80px" type="text" value="<?php echo $p[0]['price']; ?>" id="price<?php echo $p[0]['id']; ?>"></td>
+            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:100px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
         </tr>
         <input type="hidden" name="product_id[]" value="<?php echo $p[0]['id']; ?>">
         
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#number<?php echo $p[0]['id']; ?>").change(function(event) {
-                    $("#thanhTien<?php echo $p[0]['id']; ?>").val($("#number<?php echo $p[0]['id']; ?>").val()*<?php echo $p[0]['price']; ?>);
-                });
-            });
-        </script>
+        
         <?php  endforeach; ?>
     </table>
 
@@ -120,6 +118,11 @@
             $("input:checkbox").prop("checked", $(this).prop("checked"));
         });
 
+       $(".number").change(function(event) {
+           var id = $(this).prop('id');
+           $("#thanhTien"+id).val($("#"+id).val()*$("#price"+id).val());
+       });
+
        $("#book").click(function(event) {
             var postData = $("#frm").serialize();
             $.ajax({
@@ -128,7 +131,7 @@
                 dataType: 'text',
                 data: postData,
                 success: function(total){
-                    $('#total').html("Tổng giá trị hóa đơn là: " + total + " VNĐ");
+                    $('#total').html("Tổng giá trị hóa đơn là: "+ total + " VNĐ");
                     $("#modal-payment").modal('show');
                 }
             });  

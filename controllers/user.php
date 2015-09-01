@@ -53,7 +53,7 @@ function user_total()
     foreach ($prices as $value) {
        $total+= $value;
     }
-    echo $total;
+    echo number_format($total,0,",",".");
 }
 
 function user_payment()

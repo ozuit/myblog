@@ -10,7 +10,7 @@
 					<h4><?php echo $p['title']; ?></h4>
 				</a>
 				<p class="price">
-					<?php echo $p['price']; ?> đ
+					<?php echo number_format($p['price'],0,",","."); ?> đ
 				</p>
 				<p class="add">
 					<a href="index.php?c=product&m=cart&p=shop&id=<?php echo $p['id']; ?>" class="btn btn-primary btn-theme">Thêm vào giỏ hàng</a>
@@ -43,7 +43,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h3 class="modal-title">Chi tiết sản phẩm</h3>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" style="height:300px;">
 
 			</div>
 		</div>
