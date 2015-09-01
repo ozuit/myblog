@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/css/styles.css">
     <script type="text/javascript" src="./styles/js/jquery.js"></script>
     <script type="text/javascript" src="./styles/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./styles/js/jquery.twbsPagination.min.js"></script>
 
 </head>
 <body>
@@ -57,6 +58,7 @@
          <div class="container">
          <p>Copyrights © 2015 Blog All rights reserved | Develop by <a href="http://www.facebook.com/ozu94" target="_blank">duytan</a></p>
          </div>
+         <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
     </div>
     <!-- End footer -->
 
@@ -65,6 +67,28 @@
         if ('<?php echo $_GET["p"]; ?>' == 'home') {$('#home').addClass('active');}
         else if ('<?php echo $_GET["p"]; ?>' == 'shop') {$('#shop').addClass('active');}
         else if ('<?php echo $_GET["p"]; ?>' == 'contact'){$('#contact').addClass('active');}
+
+        if ($('#back-to-top').length) {
+            var scrollTrigger = 100, // px
+                backToTop = function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').addClass('show');
+                    } else {
+                        $('#back-to-top').removeClass('show');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function () {
+                backToTop();
+            });
+            $('#back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 700);
+            });
+        }
     });
     </script>
 </body>

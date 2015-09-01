@@ -42,10 +42,10 @@
                     </a>
                 </div>
             </td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:250px;" type="text" name="title[<?php echo $p[0]['id']; ?>]" value="<?php echo $p[0]['title']; ?>"></td>
+            <td style="vertical-align: middle;"><input readonly style="border:0; background-color:#fff; width:250px;" type="text" name="title[<?php echo $p[0]['id']; ?>]" value="<?php echo $p[0]['title']; ?>"></td>
             <td style="vertical-align: middle;"><input type="number" name="number[<?php echo $p[0]['id']; ?>]" min="1" id="<?php echo $p[0]['id']; ?>" class="form-control number" value="1"></td>
-            <td style="vertical-align: middle; width:150px"><input style="border:0; background-color:#fff; width:80px" type="text" value="<?php echo $p[0]['price']; ?>" id="price<?php echo $p[0]['id']; ?>"></td>
-            <td style="vertical-align: middle;"><input style="border:0; background-color:#fff; width:100px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
+            <td style="vertical-align: middle; width:150px"><input readonly style="border:0; background-color:#fff; width:80px" type="text" value="<?php echo $p[0]['price']; ?>" id="price<?php echo $p[0]['id']; ?>"></td>
+            <td style="vertical-align: middle;"><input readonly style="border:0; background-color:#fff; width:100px" type="text" name="price[<?php echo $p[0]['id']; ?>]" id="thanhTien<?php echo $p[0]['id']; ?>" value="<?php echo $p[0]['price']; ?>"></td>
         </tr>
         <input type="hidden" name="product_id[]" value="<?php echo $p[0]['id']; ?>">
         

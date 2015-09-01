@@ -16,6 +16,7 @@ define('ROOT', dirname(__FILE__));
 
 require '../includes/common.php';
 require '../includes/db.php';
+require '../includes/function.php';
 
 $controller = empty($_GET['c']) ? 'index' : strtolower($_GET['c']);
 $method = empty($_GET['m']) ? 'index' : strtolower($_GET['m']);

@@ -1,5 +1,17 @@
+<?php
+	require ROOT . DS . 'includes' . DS . 'function.php';
+
+	$pagesize = 12;
+	$total = getTotal('products')['total'];
+	$pagenum = ceil($total/$pagesize);
+
+	$page = (isset($_GET['page']) && (int)$_GET['page']>0) ? $_GET['page'] : 1;
+	$offset = ($page-1)*$pagesize;
+	$products =  getData($offset, $pagesize, 'products');
+?>
+
 <div class="col-md-9 shop_main">
-<?php foreach ($products as $p) : ?>
+	<?php foreach ($products as $p) : ?>
 	<div class="col-md-3">
 		<div class="thumbnail">
 			<a onclick="getDetail(<?php echo $p['id']; ?>)" style="cursor: pointer;">
@@ -18,8 +30,16 @@
 			</div>
 		</div>
 	</div>
-<?php endforeach; ?>
+	<?php endforeach; ?>
+	<div class="col-md-12">
+		<div class="text-center">
+			<ul class="pagination-md" id="phantrang"></ul>
+		</div>
+	</div>
+	
 </div>
+
+
 
 <script type="text/javascript">
 	function getDetail (product_id) {
@@ -34,6 +54,18 @@
 			}
 		});
 	}
+
+	$(document).ready(function() {
+		$("#phantrang").twbsPagination({
+	        totalPages: <?php echo $pagenum;?>,
+	        visiblePages: 5,
+	        first: '<<',
+	        last: '>>',
+	        prev: '<',
+	        next: '>',
+	       	href: "?c=product&m=list&p=shop&page={{number}}"
+	    });
+	});
 </script>
 
 <div class="modal fade" id="modal-detail">

@@ -3,8 +3,7 @@
 function product_list()
 {
 	$data = array();
-    
-    $data['products'] = model('product')->getAllDesc(12);
+
     $data['sidebar'] = 'blocks/sidebar_shop.php';
     $data['template_file'] = 'shop/list.php';
     render('layout.php', $data);

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="myblog/../../styles/css/bootstrap.css">
     <link rel="stylesheet" href="myblog/../../styles/css/styles.css">
     <script type="text/javascript" src="myblog/../../styles/js/jquery.js"></script>
+    <script type="text/javascript" src="myblog/../../styles/js/jquery.twbsPagination.min.js"></script>
     <script type="text/javascript" src="myblog/../../includes/ckeditor/ckeditor.js"></script>
 </head>
 <body>
