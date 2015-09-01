@@ -28,7 +28,7 @@
         if (!$i):
     ?>
     <tr>
-        <td colspan="6" class="text-center"><strong>Chưa có bài viết mới nào trong tháng này.</strong></td>
+        <td colspan="6" class="text-center"><strong>Không có bài viết nào.</strong></td>
     </tr>
     <?php endif; ?>
 </table>

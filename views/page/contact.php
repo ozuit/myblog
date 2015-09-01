@@ -2,13 +2,19 @@
 	 <div class="container">
 		     <div class="contact-info">
 			 <h2>ĐÓNG GÓP Ý KIẾN</h2>
+			 <?php if(isset($success)): ?>
+			 <div class="alert alert-success">
+			 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			 	<?php echo $success; ?>
+			 </div>
+			<?php endif; ?>
 			 </div>
 			 <div class="contact-details">				 
-			 <form>
-				 <input type="text" name="name" placeholder="Name" required/>
-				 <input type="text" name="email" placeholder="Email" required/>
-				 <input type="text" name="phone" placeholder="Phone" required/>
-				 <input type="text" name="city" placeholder="City Name" required/>
+			 <form method="POST">
+				 <input type="text" name="name" placeholder="Name" required value="<?php echo ($logged = isLogged())? $logged['fullname'] : '' ?>" />
+				 <input type="text" name="email" placeholder="Email" required value="<?php echo ($logged = isLogged())? $logged['email'] : '' ?>"/>
+				 <input type="text" name="phone" placeholder="Phone" required value="<?php echo ($logged = isLogged())? $logged['phone'] : '' ?>"/>
+				 <input type="text" name="city" placeholder="City Name" required value="" />
 				 <textarea name="message" placeholder="Message"></textarea>
 				 <input type="submit" value="SEND"/>
 			 </form>

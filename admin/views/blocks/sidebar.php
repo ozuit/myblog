@@ -8,6 +8,7 @@
     <li><a href="index.php?c=user&m=list">Members</a></li>
     <li><a href="index.php?c=product&m=list">Products</a></li>
     <li><a href="index.php?c=payment&m=list">Payments</a></li>
+    <li><a href="index.php?c=contact&m=list">Contacts</a></li>
     <li><a href="index.php?c=auth&m=logout">Logout</a></li>
     <?php else: ?>
     <li><a href="index.php?c=auth&m=login">Login</a></li>

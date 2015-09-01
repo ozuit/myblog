@@ -30,7 +30,6 @@ class Category extends Model {
         $articles = db_get_all($sql);
         if (count($articles) > 0) {
             foreach ($articles as $value) {
-                // db_delete('articles','id='.$value['id']);
                 model('article')->deleteById($value['id']);
             }
         }

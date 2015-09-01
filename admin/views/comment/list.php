@@ -27,7 +27,7 @@
         if (!$i):
     ?>
     <tr>
-        <td colspan="6" class="text-center"><strong>Hiện tại không có user nào trong database</strong></td>
+        <td colspan="6" class="text-center"><strong>Hiện tại không có comments nào trong database</strong></td>
     </tr>
     <?php endif; ?>
 </table>

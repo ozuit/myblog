@@ -60,10 +60,10 @@
         $("#phantrang").twbsPagination({
             totalPages: <?php echo $pagenum;?>,
             visiblePages: 5,
-            first: '<<',
-            last: '>>',
-            prev: '<',
-            next: '>',
+            first: '«',
+            last: '»',
+            prev: '‹',
+            next: '›',
             href: "?c=product&m=list&page={{number}}"
         });
     });
