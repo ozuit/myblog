@@ -38,7 +38,7 @@
             <td>
                 <div class="col-md-3" style="width:100px">
                     <a href="" class="thumbnail">
-                        <img src="<?php echo $p[0]['image']; ?>" alt="<?php echo $p[0]['title']; ?>">
+                        <img src="img/products/<?php echo $p[0]['image']; ?>" alt="<?php echo $p[0]['title']; ?>">
                     </a>
                 </div>
             </td>

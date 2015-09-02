@@ -1,3 +1,9 @@
+<?php if(isset($_GET['s'])&&$_GET['s']=='error'): ?>
+<div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <label style="color:red">Bạn cần phải đăng nhập mới có thể mua hàng!</label>
+</div>
+<?php endif; ?>
 <?php
 	require ROOT . DS . 'includes' . DS . 'function.php';
 
@@ -15,7 +21,7 @@
 	<div class="col-md-3">
 		<div class="thumbnail">
 			<a onclick="getDetail(<?php echo $p['id']; ?>)" style="cursor: pointer;">
-				<img src="<?php echo $p['image']; ?>" alt="<?php echo $p['title']; ?>">
+				<img id="thumnail<?php echo $p['id']; ?>" src="img/products/<?php echo $p['image']; ?>" alt="<?php echo $p['title']; ?>">
 			</a>
 			<div class="caption">
 				<a onclick="getDetail(<?php echo $p['id']; ?>)" style="cursor: pointer;">
@@ -49,7 +55,8 @@
 			dataType: 'text',
 			data: {product_id: product_id},
 			success: function(data){
-				$('.modal-body').html(data);
+				$('#img').prop('src', $('#thumnail'+product_id).prop('src'));
+				$('.description').html(data);
 				$('#modal-detail').modal('show');
 			}
 		});
@@ -76,7 +83,10 @@
 				<h3 class="modal-title">Chi tiết sản phẩm</h3>
 			</div>
 			<div class="modal-body" style="height:300px;">
-
+				<p><img id="img" src="" style="float:left; height:270px; width:270px; margin-right:10px;" /></p>
+				<div class="description">
+					
+				</div>
 			</div>
 		</div>
 	</div>

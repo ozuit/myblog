@@ -32,7 +32,7 @@
         <td>
             <div class="col-md-3" style="width:100px">
                 <a href="" class="thumbnail">
-                    <img src="<?php echo $p['image']; ?>" alt="<?php echo $p['title']; ?>">
+                    <img src="../../img/products/<?php echo $p['image']; ?>" alt="<?php echo $p['title']; ?>">
                 </a>
             </div>
         </td>

@@ -11,20 +11,23 @@ function product_list()
 
 function product_cart()
 {
-	$data = array();
-    
-    if (!isset($_SESSION['cart'])) {
-    	$_SESSION['cart']['number'] = 1;
-        $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
+    if (isLogged()) {
+        
+        if (!isset($_SESSION['cart'])) {
+        	$_SESSION['cart']['number'] = 1;
+            $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
+        }
+        else {
+            if (!in_array($_GET['id'], $_SESSION['cart']['id'])) {
+                $_SESSION['cart']['number'] = $_SESSION['cart']['number']+1;
+                $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
+            }	
+        }
+        redirect('index.php?c=user&m=cart');
     }
     else {
-        if (!in_array($_GET['id'], $_SESSION['cart']['id'])) {
-            $_SESSION['cart']['number'] = $_SESSION['cart']['number']+1;
-            $_SESSION['cart']['id'][$_GET['id']] = $_GET['id'];
-        }	
+        redirect('index.php?c=product&m=list&p=shop&s=error');
     }
-
-    redirect('index.php?c=user&m=cart');
 }
 
 function product_detail()

@@ -4,9 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Money Lover</title>
     <link rel="stylesheet" href="./styles/css/bootstrap.css">
+    
     <link rel="stylesheet" href="./styles/css/styles.css">
     <script type="text/javascript" src="./styles/js/jquery.js"></script>
     <script type="text/javascript" src="./styles/js/bootstrap.min.js"></script>
+    
     <script type="text/javascript" src="./styles/js/jquery.twbsPagination.min.js"></script>
 
 </head>
