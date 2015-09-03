@@ -47,6 +47,11 @@
   });
   </script>
 
+  <div class="form-group">
+    <label for="">Tags</label>
+    <input type="text" class="form-control" name="tags" placeholder="Mỗi tag cách nhau bởi dấu phẩy, ví dụ: php, mysql,…" value="<?php echo $article['tags']; ?>">
+  </div>
+
   <button type="submit" class="btn btn-success">Lưu bài học</button>
   <a href="index.php?c=article&m=list"><button type="button" class="btn btn-primary">Hủy bỏ</button></a>
 </form>

@@ -10,9 +10,30 @@ class Article extends Model {
         return db_get_all($sql);
     }
 
-    public function getAllBy($category_id)
+    public function getAllBy($field, $value)
     {
-    	$sql = "SELECT * FROM `{$this->table}` WHERE category_id= {$category_id}";
+    	$sql = "SELECT * FROM `{$this->table}` WHERE {$field}= {$value}";
+        
+        return db_get_all($sql);
+    }
+
+    public function getTagsBy($article_id)
+    {
+        $sql = "SELECT tags FROM `{$this->table}` WHERE id= {$article_id}";
+        
+        return db_get_all($sql)[0];
+    }
+
+    public function getTagIdBy($tag_name)
+    {
+        $sql = "SELECT id FROM `tags` WHERE name= '{$tag_name}'";
+        
+        return db_get_all($sql)[0];
+    }
+
+    public function getArticleIdBy($tag_id)
+    {
+        $sql = "SELECT article_id FROM `articles_tags` WHERE tag_id= {$tag_id}";
         
         return db_get_all($sql);
     }

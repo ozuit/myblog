@@ -3,6 +3,17 @@
 		  <div class="single-grid">
 				<h3><a href="index.php?c=home&m=showArticle&p=home&id=<?php echo $article['id']; ?>"><?php echo $article['title']; ?></a></h3>						 					 
 				<p><?php echo $article['content']; ?></p>
+				<p>
+					<hr>	
+					<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> 
+					<lebel style="font-size:18px;margin-left:5px;color:#666;">Từ khóa:</label> 
+					<?php 
+						$tags = explode(',', $tags['tags']); 
+						foreach ($tags as $tag) :
+					?>
+					<a href="index.php?c=home&p=home&m=tag&n=<?php echo $tag; ?>" class="btn btn-default btn-xs"><?php echo $tag; ?></a>
+					<?php endforeach; ?>
+				</p>
 		  </div>
 
 		 <ul class="comment-list">

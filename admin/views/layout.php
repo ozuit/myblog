@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Money Lover</title>
+    <title>My blog</title>
     <link rel="stylesheet" href="myblog/../../styles/css/bootstrap.css">
     <link rel="stylesheet" href="myblog/../../styles/css/styles.css">
     <script type="text/javascript" src="myblog/../../styles/js/jquery.js"></script>
