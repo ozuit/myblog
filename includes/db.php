@@ -2,23 +2,25 @@
 
 $host       = '127.0.0.1';
 $user       = 'root';
-$password   = '';
+$password   = 'passwd';
 $db_name    = 'myblog';
 
-mysql_connect($host, $user, $password, $db_name) or die('Can not connect database !');
-mysql_select_db($db_name);
-mysql_set_charset('utf8');
+$con = mysqli_connect($host, $user, $password, $db_name) or die('Can not connect database !');
+mysqli_select_db($con, $db_name);
+mysqli_set_charset($con,"utf8");
 
 function esc($text) {
-    return mysql_real_escape_string($text);
+    global $con;
+    return mysqli_real_escape_string($con, $text);
 }
 
 function db_get_all($sql) {
-    $result = mysql_query($sql);
+    global $con;
+    $result = mysqli_query($con, $sql);
     $data = array();
     
     if ($result) {
-        while ($row = mysql_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
         }
     }
@@ -27,19 +29,21 @@ function db_get_all($sql) {
 }
 
 function db_insert($table, $data) {
+    global $con;
     $fields = array_keys($data);
-    $e_data = array_map('mysql_real_escape_string', $data);
+    $e_data = array_map('esc', $data);
     
     $sql = "INSERT INTO `{$table}` (`" . implode('`, `', $fields). "`) VALUES ('"  . implode("', '", $e_data) . "')";
-    mysql_query($sql);
+    mysqli_query($con, $sql);
     
-    $inserted_id = mysql_insert_id();
+    $inserted_id = mysqli_insert_id($con);
     return $inserted_id;
 }
 
 function db_update($table, $data, $where) {
+    global $con;
     $fields = array_keys($data);
-    $e_data = array_map('mysql_real_escape_string', $data);
+    $e_data = array_map('esc', $data);
     $sets = array();
     
     foreach ($fields as $field) {
@@ -47,15 +51,16 @@ function db_update($table, $data, $where) {
     }
     
     $sql = "UPDATE `{$table}` SET "  . implode(", ", $sets) . " WHERE {$where}";
-    mysql_query($sql);
+    mysqli_query($con, $sql);
     
-    return mysql_affected_rows();
+    return mysqli_affected_rows($con);
 }
 
 
 function db_delete($table, $where) {
+    global $con;
     $sql = "DELETE FROM `{$table}` WHERE {$where}";
-    mysql_query($sql);
+    mysqli_query($con, $sql);
 
-    return mysql_affected_rows();
+    return mysqli_affected_rows($con);
 }

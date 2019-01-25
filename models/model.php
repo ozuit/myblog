@@ -1,6 +1,5 @@
 <?php
 
-require ROOT . DS . 'includes' . DS . 'db.php';
 class Model {
     public $table = '';
     public $primary_key = '';
